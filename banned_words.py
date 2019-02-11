@@ -1,18 +1,22 @@
-from nltk.tokenize import word_tokenize
-
-prose = open('prose.txt', 'r').read()
+prose = open('prose.txt', 'r').read().split('\n')
 
 banned_words = open('banned_words.txt', 'r').read().lower().split('\n')
-banned_words = list(filter(None, banned_words))
 
-word_tokens = word_tokenize(prose)
+output = ''
 
-filtered_sentence = []
-
-for w in word_tokens:
-    if w.lower() not in banned_words:
-        filtered_sentence.append(w)
+for s in prose:
+    if s == '':
+        output = output + '\n'
     else:
-        filtered_sentence.append(w.replace(w, len(w)*'*'))
+        tokens = s.split()
+        filtered = []
 
-print(filtered_sentence)
+        for word in tokens:
+            if word.lower() in banned_words:
+                filtered.append(word.replace(word, len(word)*'*'))
+            else:
+                filtered.append(word)
+
+        output = output + " ".join(filtered) + "\n"
+
+print(output)

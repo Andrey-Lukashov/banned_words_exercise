@@ -1,8 +1,6 @@
 # Banned Words
 I got this exercise as part of one interview process. 
 
-
-
 ## Programming pre-screening exercise
 Although Python is the preferred programming language for this exercise, I was allowed to use any other language to implement this program. 
 
@@ -34,3 +32,7 @@ There are some words that one must not say such as ***** and ****** - everything
 RAM and CPU consumption are important – the program should be optimised to deal with several thousands of banned words and a prose input that is several gigabytes long.
 
 Write the program as it was meant to be used in production – complete with automated tests and inline documentation.
+
+
+pip install mosestokenizer
+
