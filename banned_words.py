@@ -1,14 +1,11 @@
-prose = open('prose.txt', 'r').read().split('\n')
-
 banned_words = open('banned_words.txt', 'r').read().lower().split('\n')
+prose = open('prose.txt', 'r')
 
-output = ''
-
-for s in prose:
-    if s == '':
-        output = output + '\n'
+for line in prose:
+    if line == '':
+        print("\n")
     else:
-        tokens = s.split()
+        tokens = line.split()
         filtered = []
 
         for word in tokens:
@@ -17,6 +14,6 @@ for s in prose:
             else:
                 filtered.append(word)
 
-        output = output + " ".join(filtered) + "\n"
+        print(" ".join(filtered))
 
-print(output)
+prose.close()
